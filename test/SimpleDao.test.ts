@@ -31,14 +31,7 @@ describe("SimpleDao", function () {
       .depositFunds({ value: constants.WeiPerEther.mul(5) });
 
     // Exploit start
-    const SimpleDaoExploit = await ethers.getContractFactory(
-      "SimpleDaoExploit"
-    );
-    const simpleDaoExploit = await SimpleDaoExploit.deploy();
-    await simpleDaoExploit.deployed();
-    await simpleDaoExploit.connect(attacker).exploit(simpleDao.address, {
-      value: constants.WeiPerEther.div(2),
-    });
+
     // Exploit end
 
     // Completion condition

@@ -13,10 +13,8 @@ describe("UnsafeToken", function () {
     await unsafeToken.deployed();
 
     // Exploit start
-    await unsafeToken.transfer(
-      target.address,
-      constants.MaxUint256.sub(100000 - 1000 - 1)
-    );
+
+    
     // Exploit end
 
     // Completion condition
